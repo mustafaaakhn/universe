@@ -79,6 +79,8 @@
             #world canvas {
                 width: 100%;
                 height: 100%;
+                max-width: 100%;
+                max-height: 100%;
                 display: block
             }
 
@@ -1130,232 +1132,7 @@
                 }
             }
 
-            @media(max-width: 760px) {
-                .header {
-                    top:23px;
-                    left: 24px;
-                    right: 24px
-                }
-
-                .logo {
-                    font-size: 15px;
-                    letter-spacing: 5px;
-                    gap: 10px
-                }
-
-                .logo svg {
-                    width: 26px;
-                    height: 26px
-                }
-
-                .tagline {
-                    display: none
-                }
-
-                .header-actions {
-                    gap: 15px
-                }
-
-                .explore {
-                    font-size: 10px
-                }
-
-                .header-actions .round {
-                    width: 29px;
-                    height: 29px
-                }
-
-                .story {
-                    top: 18%;
-                    left: 26px;
-                    width: 335px
-                }
-
-                .story h1 {
-                    font-size: 43px;
-                    letter-spacing: -1.7px;
-                    margin: 18px 0 15px
-                }
-
-                .story p {
-                    font-size: 10px;
-                    max-width: 245px;
-                    line-height: 1.9
-                }
-
-                .kicker {
-                    font-size: 7px;
-                    letter-spacing: 2px
-                }
-
-                .story-actions {
-                    margin-top: 14px;
-                    gap: 20px
-                }
-
-                .text-btn {
-                    font-size: 10px
-                }
-
-                .text-btn.secondary {
-                    font-size: 9px
-                }
-
-                .scale {
-                    height: 230px;
-                    right: 15px;
-                    top: 53%
-                }
-
-                .scale input {
-                    width: 230px;
-                    top: 114px;
-                    left: -96px
-                }
-
-                .scale .end {
-                    font-size: 6px
-                }
-
-                .scale-play {
-                    bottom: -68px;
-                    width: 32px;
-                    height: 32px
-                }
-
-                .scale-label {
-                    display: none
-                }
-
-                .distance {
-                    bottom: 125px;
-                    right: 26px
-                }
-
-                .distance strong {
-                    font-size: 10px
-                }
-
-                .distance small {
-                    font-size: 6px
-                }
-
-                .dock {
-                    bottom: 35px;
-                    height: 51px;
-                    gap: 12px;
-                    padding-right: 15px;
-                    max-width: calc(100vw - 34px)
-                }
-
-                .dock .date {
-                    font-size: 8px;
-                    min-width: 100px
-                }
-
-                .speed-wrap select {
-                    font-size: 8px;
-                    width: 90px
-                }
-
-                .play {
-                    width: 32px;
-                    height: 32px
-                }
-
-                .bottom-left {
-                    bottom: 13px;
-                    left: 25px;
-                    font-size: 6px
-                }
-
-                .bottom-right {
-                    right: 20px;
-                    bottom: 94px;
-                    gap: 3px
-                }
-
-                .bottom-right .round {
-                    width: 29px;
-                    height: 29px
-                }
-
-                .distance {
-                    bottom: 140px
-                }
-
-                .hint {
-                    font-size: 6px;
-                    bottom: 100px;
-                    max-width: 75vw;
-                    white-space: normal;
-                    text-align: center;
-                    line-height: 1.6
-                }
-
-                .context {
-                    top: 80px;
-                    font-size: 6px;
-                    letter-spacing: 1px
-                }
-
-                .destinations {
-                    right: 20px;
-                    top: 76px;
-                    width: 320px;
-                    max-width: calc(100vw - 40px);
-                    max-height: 72vh
-                }
-
-                .detail {
-                    left: 20px;
-                    right: 20px;
-                    bottom: 112px;
-                    width: auto;
-                    padding: 24px;
-                    max-height: 65dvh;
-                    overflow: auto
-                }
-
-                .detail h2 {
-                    font-size: 29px
-                }
-
-                .detail p {
-                    font-size: 11px
-                }
-
-                .facts {
-                    gap: 16px
-                }
-
-                .toast {
-                    top: 79px;
-                    font-size: 8px;
-                    line-height: 1.8
-                }
-
-                .label {
-                    font-size: 7px;
-                    padding: 6px;
-                    gap: 5px
-                }
-
-                .label .line {
-                    width: 10px
-                }
-
-                .label i {
-                    width: 4px;
-                    height: 4px
-                }
-
-                .tour-progress {
-                    height: 2px
-                }
-            }
-
-            @media(max-height: 650px) and (min-width:761px) {
+            @media(max-height: 650px) and (min-width:961px) {
                 .scale-play {
                     bottom:auto;
                     top: -5px;
@@ -1428,6 +1205,831 @@
                 * {
                     animation: none!important;
                     transition: none!important
+                }
+            }
+
+            .navigation-controls {
+                display: contents
+            }
+
+            .scale-caption,.clock-label,.phone-only {
+                display: none
+            }
+
+            .clock {
+                display: contents
+            }
+
+            @media(max-width: 760px),(max-width:960px) and (max-height:540px) {
+                html,body {
+                    height:var(--app-h,100dvh);
+                    overscroll-behavior: none
+                }
+
+                body {
+                    --phone-edge: 20px
+                }
+
+                .header {
+                    top: max(12px,env(safe-area-inset-top));
+                    left: max(20px,env(safe-area-inset-left));
+                    right: max(16px,env(safe-area-inset-right));
+                    height: 44px;
+                    gap: 12px
+                }
+
+                .logo {
+                    font-size: 15px;
+                    letter-spacing: 4px;
+                    gap: 9px;
+                    min-height: 44px;
+                    padding: 0
+                }
+
+                .logo svg {
+                    width: 26px;
+                    height: 26px
+                }
+
+                .tagline,.context {
+                    display: none
+                }
+
+                .header-actions {
+                    gap: 10px
+                }
+
+                .explore {
+                    font-size: 12px;
+                    min-height: 44px;
+                    padding: 8px 4px;
+                    gap: 8px
+                }
+
+                .explore svg {
+                    width: 17px;
+                    height: 17px
+                }
+
+                .header-actions .round {
+                    width: 44px;
+                    height: 44px
+                }
+
+                .story {
+                    left: max(22px,env(safe-area-inset-left));
+                    right: max(22px,env(safe-area-inset-right));
+                    top: calc(max(12px,env(safe-area-inset-top)) + 72px);
+                    width: auto;
+                    max-width: 500px
+                }
+
+                .kicker {
+                    font-size: 8px;
+                    letter-spacing: 1.8px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    line-height: 14px
+                }
+
+                .story h1 {
+                    font-size: clamp(27px,8.2vw,36px);
+                    line-height: 1.08;
+                    letter-spacing: -1.2px;
+                    margin: 13px 0 3px;
+                    min-height: 2.16em;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden
+                }
+
+                .story em {
+                    letter-spacing: -.7px
+                }
+
+                .story p {
+                    display: none
+                }
+
+                .story-actions {
+                    margin-top: 4px;
+                    gap: 16px;
+                    height: 44px
+                }
+
+                .story-actions #journey {
+                    display: none
+                }
+
+                .story-actions .secondary {
+                    font-size: 11px;
+                    color: #9cb9cc;
+                    min-height: 44px;
+                    padding: 8px 0;
+                    gap: 10px
+                }
+
+                .shade {
+                    background: linear-gradient(180deg,#03050799,transparent 32%,transparent 65%,#030507b5)
+                }
+
+                .navigation-controls {
+                    display: grid;
+                    position: absolute;
+                    z-index: 7;
+                    left: max(12px,env(safe-area-inset-left));
+                    right: max(12px,env(safe-area-inset-right));
+                    bottom: max(12px,env(safe-area-inset-bottom));
+                    padding: 12px 14px 10px;
+                    grid-template-columns: 44px minmax(0,1fr) auto;
+                    grid-template-rows: 44px 40px 56px;
+                    gap: 4px 12px;
+                    border: 1px solid #aacbe429;
+                    border-radius: 20px;
+                    background: linear-gradient(145deg,#101d29ed,#081118f0);
+                    backdrop-filter: blur(20px);
+                    box-shadow: 0 12px 48px #0005
+                }
+
+                .scale {
+                    display: contents;
+                    position: static;
+                    transform: none;
+                    width: auto;
+                    height: auto
+                }
+
+                .scale .end,.scale-label,.scale .tick {
+                    display: none
+                }
+
+                .scale-play {
+                    position: static;
+                    grid-column: 1;
+                    grid-row: 1;
+                    transform: none;
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 13px;
+                    background: #1a2a36;
+                    border-color: #b3d8ef33
+                }
+
+                .scale-play svg {
+                    width: 14px;
+                    height: 14px
+                }
+
+                .scale-play.active {
+                    background: #a9d7ef;
+                    color: #0a1a25;
+                    border-color: #b6e2f8;
+                    box-shadow: 0 0 22px #83c3ed1a
+                }
+
+                .scale-caption {
+                    display: flex;
+                    grid-column: 2;
+                    grid-row: 1;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 5px;
+                    min-width: 0;
+                    pointer-events: none
+                }
+
+                .scale-caption strong {
+                    font-size: 11px;
+                    font-weight: 450;
+                    letter-spacing: .1px;
+                    white-space: nowrap
+                }
+
+                .scale-caption small {
+                    font-size: 9px;
+                    line-height: 1.3;
+                    color: #779aaf;
+                    white-space: nowrap
+                }
+
+                .scale input {
+                    position: static;
+                    grid-column: 1 / -1;
+                    grid-row: 2;
+                    transform: none;
+                    transform-origin: center;
+                    width: 100%;
+                    height: 40px;
+                    padding: 0;
+                    margin: 0;
+                    background: transparent;
+                    cursor: ew-resize;
+                    touch-action: pan-y
+                }
+
+                .scale input::-webkit-slider-runnable-track {
+                    height: 3px;
+                    border-radius: 4px;
+                    background: linear-gradient(90deg,#a5d2ec 0%,#a5d2ec var(--zoom-progress,3.4%),#91b2c528 var(--zoom-progress,3.4%),#91b2c528 100%)
+                }
+
+                .scale input::-moz-range-track {
+                    height: 3px;
+                    border-radius: 4px;
+                    background: #91b2c528
+                }
+
+                .scale input::-moz-range-progress {
+                    height: 3px;
+                    border-radius: 4px;
+                    background: #a5d2ec
+                }
+
+                .scale input::-webkit-slider-thumb {
+                    width: 18px;
+                    height: 18px;
+                    margin-top: -7.5px;
+                    border: 3px solid #142631;
+                    background: #d1eaf7;
+                    box-shadow: 0 0 0 1px #a6d5ef55,0 0 14px #8ed5fc33
+                }
+
+                .scale input::-moz-range-thumb {
+                    width: 13px;
+                    height: 13px;
+                    border: 3px solid #142631;
+                    background: #d1eaf7;
+                    box-shadow: 0 0 0 1px #a6d5ef55
+                }
+
+                .distance {
+                    position: static;
+                    grid-column: 3;
+                    grid-row: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    max-width: 133px;
+                    min-width: 0;
+                    text-align: right;
+                    pointer-events: none
+                }
+
+                .distance strong {
+                    font-size: 10px;
+                    line-height: 1.6;
+                    letter-spacing: 0;
+                    overflow-wrap: anywhere
+                }
+
+                .distance small {
+                    display: none
+                }
+
+                .dock {
+                    position: static;
+                    grid-column: 1 / -1;
+                    grid-row: 3;
+                    transform: none;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 12px;
+                    min-width: 0;
+                    max-width: none;
+                    height: 56px;
+                    padding: 9px 0 0;
+                    border: 0;
+                    border-top: 1px solid #aacbe41c;
+                    border-radius: 0;
+                    background: none;
+                    backdrop-filter: none;
+                    box-shadow: none
+                }
+
+                .dock .play {
+                    width: 44px;
+                    height: 44px;
+                    min-width: 44px;
+                    flex-shrink: 0;
+                    background: #243644;
+                    color: #c6dce9
+                }
+
+                .dock .play svg {
+                    width: 13px;
+                    height: 13px
+                }
+
+                .clock {
+                    display: flex;
+                    flex: 1;
+                    min-width: 0;
+                    align-items: flex-start;
+                    justify-content: center;
+                    gap: 5px;
+                    flex-direction: column
+                }
+
+                .clock-label {
+                    display: block;
+                    font: 7px var(--mono);
+                    letter-spacing: 1.5px;
+                    color: #698b9f
+                }
+
+                .dock .date {
+                    font-size: 10px;
+                    min-width: 0;
+                    max-width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
+                    text-align: left;
+                    letter-spacing: 0
+                }
+
+                .dock .separator {
+                    display: none
+                }
+
+                .speed-wrap {
+                    max-width: 128px;
+                    flex-shrink: 0
+                }
+
+                .speed-wrap select {
+                    font-size: 11px;
+                    min-height: 44px;
+                    width: 124px;
+                    max-width: 100%;
+                    padding: 8px 17px 8px 0
+                }
+
+                .speed-wrap:after {
+                    top: 10px;
+                    right: 1px
+                }
+
+                .bottom-left,.bottom-right,.hint {
+                    display: none
+                }
+
+                .label {
+                    font-size: 9px;
+                    gap: 5px;
+                    min-height: 32px;
+                    padding: 7px
+                }
+
+                .label .line {
+                    width: 9px
+                }
+
+                .label i {
+                    width: 5px;
+                    height: 5px
+                }
+
+                .destinations {
+                    top: calc(max(12px,env(safe-area-inset-top)) + 56px);
+                    left: max(12px,env(safe-area-inset-left));
+                    right: max(12px,env(safe-area-inset-right));
+                    width: auto;
+                    max-width: none;
+                    max-height: calc(var(--app-h,100dvh) - max(12px,env(safe-area-inset-top)) - 84px);
+                    padding: 22px;
+                    overscroll-behavior: contain;
+                    -webkit-overflow-scrolling: touch
+                }
+
+                .panel-title {
+                    font-size: 8px;
+                    letter-spacing: 1.4px;
+                    line-height: 1.8;
+                    min-height: 30px;
+                    padding-right: 20px;
+                    margin-bottom: 15px
+                }
+
+                .panel-title button {
+                    position: absolute;
+                    top: 10px;
+                    right: 8px;
+                    width: 44px;
+                    height: 44px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 23px
+                }
+
+                .search {
+                    font-size: 16px;
+                    line-height: 24px;
+                    padding: 5px 0 12px;
+                    margin-bottom: 8px
+                }
+
+                .destination {
+                    min-height: 56px;
+                    padding: 10px 4px;
+                    gap: 13px
+                }
+
+                .destination strong {
+                    font-size: 13px
+                }
+
+                .destination small {
+                    font-size: 8px;
+                    line-height: 1.5
+                }
+
+                .destination-group {
+                    font-size: 8px;
+                    letter-spacing: 1.5px;
+                    margin-top: 20px
+                }
+
+                .destination .symbol {
+                    width: 28px;
+                    height: 28px
+                }
+
+                .detail {
+                    left: max(12px,env(safe-area-inset-left));
+                    right: max(12px,env(safe-area-inset-right));
+                    bottom: max(12px,env(safe-area-inset-bottom));
+                    width: auto;
+                    padding: 26px;
+                    max-height: calc(var(--app-h,100dvh) - max(12px,env(safe-area-inset-top)) - 88px);
+                    overflow: auto;
+                    overscroll-behavior: contain
+                }
+
+                .detail .close {
+                    width: 44px;
+                    height: 44px;
+                    top: 8px;
+                    right: 8px;
+                    font-size: 24px
+                }
+
+                .detail h2 {
+                    font-size: 31px;
+                    margin-top: 16px
+                }
+
+                .detail p {
+                    font-size: 12px;
+                    line-height: 1.85
+                }
+
+                .detail .body-type {
+                    font-size: 8px;
+                    padding-right: 26px;
+                    line-height: 1.8
+                }
+
+                .facts {
+                    gap: 21px 16px
+                }
+
+                .fact small {
+                    font-size: 8px;
+                    line-height: 1.6
+                }
+
+                .fact strong {
+                    font-size: 11px;
+                    line-height: 1.7
+                }
+
+                .detail .text-btn {
+                    min-height: 44px;
+                    font-size: 12px
+                }
+
+                .detail-note {
+                    font-size: 9px
+                }
+
+                .toast {
+                    top: calc(max(12px,env(safe-area-inset-top)) + 54px);
+                    font-size: 10px;
+                    line-height: 1.7;
+                    padding: 9px 15px;
+                    max-width: calc(100vw - 28px);
+                    border-radius: 12px
+                }
+
+                .tour-progress {
+                    height: 2px
+                }
+
+                .cinema-exit {
+                    min-height: 44px;
+                    bottom: max(16px,env(safe-area-inset-bottom));
+                    right: 18px;
+                    font-size: 11px
+                }
+
+                .phone-only {
+                    display: flex
+                }
+
+                dialog {
+                    padding: 28px 24px;
+                    max-height: calc(var(--app-h,100dvh) - 40px)
+                }
+
+                dialog .close {
+                    top: 8px;
+                    right: 8px;
+                    min-width: 44px;
+                    min-height: 44px
+                }
+
+                .control {
+                    min-height: 56px;
+                    font-size: 12px
+                }
+
+                .control .toggle {
+                    width: 44px;
+                    height: 26px
+                }
+
+                .control .toggle:after {
+                    width: 16px;
+                    height: 16px;
+                    top: 4px;
+                    left: 4px
+                }
+
+                .control .toggle.on:after {
+                    left: 22px
+                }
+
+                dialog p {
+                    font-size: 12px
+                }
+
+                .phone-only button {
+                    min-width: 44px;
+                    min-height: 44px
+                }
+
+                body.cinema .shade {
+                    opacity: .2
+                }
+            }
+
+            @media(max-width: 360px) {
+                .navigation-controls {
+                    gap:4px 9px;
+                    padding-left: 12px;
+                    padding-right: 12px
+                }
+
+                .scale-caption strong {
+                    font-size: 10px
+                }
+
+                .scale-caption small {
+                    font-size: 8px
+                }
+
+                .distance {
+                    max-width: 106px
+                }
+
+                .distance strong {
+                    font-size: 9px
+                }
+
+                .dock {
+                    gap: 8px
+                }
+
+                .dock .date {
+                    font-size: 9px
+                }
+
+                .speed-wrap {
+                    max-width: 112px
+                }
+
+                .speed-wrap select {
+                    width: 112px;
+                    font-size: 10px
+                }
+
+                .header {
+                    left: 18px;
+                    right: 12px
+                }
+
+                .logo {
+                    letter-spacing: 3px;
+                    font-size: 14px
+                }
+
+                .header-actions {
+                    gap: 7px
+                }
+
+                .story {
+                    left: 20px;
+                    right: 20px
+                }
+            }
+
+            @media(max-height: 700px) and (max-width:760px) and (orientation:portrait) {
+                .story {
+                    top:calc(max(12px,env(safe-area-inset-top)) + 57px)
+                }
+
+                .story h1 {
+                    font-size: clamp(27px,7.5vw,31px);
+                    margin-top: 8px
+                }
+
+                .story-actions {
+                    margin-top: 0
+                }
+
+                .navigation-controls {
+                    grid-template-rows: 44px 32px 52px;
+                    padding-top: 10px;
+                    padding-bottom: 8px
+                }
+
+                .scale input {
+                    height: 32px
+                }
+
+                .dock {
+                    height: 52px;
+                    padding-top: 7px
+                }
+            }
+
+            @media(max-width: 960px) and (max-height:540px) and (orientation:landscape) {
+                .header {
+                    top:max(8px,env(safe-area-inset-top));
+                    left: max(20px,env(safe-area-inset-left));
+                    right: max(16px,env(safe-area-inset-right))
+                }
+
+                .story {
+                    top: calc(max(8px,env(safe-area-inset-top)) + 61px);
+                    left: max(24px,env(safe-area-inset-left));
+                    right: auto;
+                    width: 34%;
+                    max-width: 330px
+                }
+
+                .story h1 {
+                    font-size: clamp(24px,3.8vw,30px);
+                    margin: 9px 0 2px;
+                    min-height: 2.16em
+                }
+
+                .story .kicker {
+                    font-size: 7px;
+                    letter-spacing: 1.1px
+                }
+
+                .story-actions {
+                    margin-top: 0
+                }
+
+                .navigation-controls {
+                    grid-template-columns: 44px minmax(80px,1fr) 110px 252px;
+                    grid-template-rows: 48px;
+                    gap: 0 12px;
+                    padding: 10px 14px;
+                    left: max(12px,env(safe-area-inset-left));
+                    right: max(12px,env(safe-area-inset-right));
+                    bottom: max(8px,env(safe-area-inset-bottom));
+                    border-radius: 17px
+                }
+
+                .scale-play {
+                    grid-column: 1;
+                    grid-row: 1;
+                    align-self: center
+                }
+
+                .scale-caption {
+                    display: none
+                }
+
+                .scale input {
+                    grid-column: 2;
+                    grid-row: 1;
+                    align-self: center;
+                    height: 44px
+                }
+
+                .distance {
+                    grid-column: 3;
+                    grid-row: 1;
+                    max-width: 110px
+                }
+
+                .dock {
+                    grid-column: 4;
+                    grid-row: 1;
+                    height: 48px;
+                    padding: 0;
+                    border: 0;
+                    gap: 9px;
+                    align-self: center
+                }
+
+                .clock-label {
+                    font-size: 7px
+                }
+
+                .dock .date {
+                    font-size: 9px
+                }
+
+                .speed-wrap {
+                    max-width: 110px
+                }
+
+                .speed-wrap select {
+                    font-size: 10px;
+                    width: 110px
+                }
+
+                .panel-title {
+                    min-height: 24px
+                }
+
+                .destinations {
+                    max-height: calc(var(--app-h,100dvh) - 80px)
+                }
+
+                .detail {
+                    max-width: 440px;
+                    left: auto;
+                    right: max(12px,env(safe-area-inset-right));
+                    max-height: calc(var(--app-h,100dvh) - 28px)
+                }
+
+                .toast {
+                    max-width: 50vw;
+                    left: 65%;
+                    top: 62px
+                }
+
+                dialog {
+                    max-height: calc(var(--app-h,100dvh) - 24px)
+                }
+            }
+
+            @media(max-width: 640px) and (max-height:540px) and (orientation:landscape) {
+                .navigation-controls {
+                    grid-template-columns:44px minmax(64px,1fr) 88px 220px;
+                    column-gap: 8px;
+                    padding-left: 10px;
+                    padding-right: 10px
+                }
+
+                .distance {
+                    max-width: 88px
+                }
+
+                .distance strong {
+                    font-size: 9px
+                }
+
+                .dock {
+                    gap: 7px
+                }
+
+                .dock .date {
+                    font-size: 8px
+                }
+
+                .speed-wrap,.speed-wrap select {
+                    max-width: 94px;
+                    width: 94px;
+                    font-size: 9px
+                }
+
+                .story h1 {
+                    font-size: 25px
+                }
+
+                .story {
+                    width: 36%
                 }
             }
         </style>
@@ -1504,67 +2106,76 @@
             <input class="search" id="search" type="search" placeholder="Bir gezegen, bir yıldız, bir galaksi…" aria-label="Gök cismi ara">
             <div id="destinationList"></div>
         </aside>
-        <div class="scale ui" id="scale">
-            <span class="end top">EVREN</span>
-            <input type="range" id="zoom" min="6.6" max="27.5" step=".001" value="7.32" aria-label="Kesintisiz ölçek, logaritmik metre">
-            <span class="end bottom">YAKIN</span>
-            <span class="scale-label" id="scaleLabel">DÜNYA</span>
-            <button class="round scale-play" id="scalePlay" title="Ölçeği otomatik oynat" aria-label="Ölçeği otomatik oynat" aria-pressed="false">
-                <svg viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="m5 3 8 5-8 5z"/>
-                </svg>
-            </button>
-        </div>
-        <div class="distance ui">
-            <strong id="distance">21.000 km</strong>
-            <small id="distanceCaption">ODAK NOKTASINA UZAKLIK</small>
-        </div>
-        <div class="hint ui" id="hint">SÜRÜKLE · ETRAFINA BAK &nbsp;&nbsp; KAYDIR · EVRENİN İÇİNDE UZAKLAŞ</div>
-        <div class="dock ui" aria-label="Zaman kontrolü">
-            <button class="play" id="play" aria-label="Zamanı duraklat">
-                <svg viewBox="0 0 16 16">
-                    <path d="M4 3h2.5v10H4zm5.5 0H12v10H9.5z"/>
-                </svg>
-            </button>
-            <span class="date" id="date">20 EKİ 2026</span>
-            <div class="separator"></div>
-            <div class="speed-wrap">
-                <select id="speed" aria-label="Zamanın akış hızı">
-                    <option value="0.000011574074">Gerçek zaman</option>
-                    <option value="0.00069444444">1 dakika / sn</option>
-                    <option value="0.00347222222" selected>5 dakika / sn</option>
-                    <option value="0.04166666667">1 saat / sn</option>
-                    <option value="1">1 gün / sn</option>
-                    <option value="30">30 gün / sn</option>
-                    <option value="365.25">1 yıl / sn</option>
-                    <option value="36525000">100 bin yıl / sn</option>
-                    <option value="365250000">1 milyon yıl / sn</option>
-                    <option value="36525000000">100 milyon yıl / sn</option>
-                </select>
+        <section class="navigation-controls ui" id="navigationControls" aria-label="Ölçek ve zaman kontrolleri">
+            <div class="scale ui" id="scale">
+                <span class="end top">EVREN</span>
+                <input type="range" id="zoom" min="6.6" max="27.5" step=".001" value="7.32" aria-label="Kesintisiz ölçek, logaritmik metre">
+                <span class="end bottom">YAKIN</span>
+                <span class="scale-label" id="scaleLabel">DÜNYA</span>
+                <button class="round scale-play" id="scalePlay" title="Ölçeği otomatik oynat" aria-label="Ölçeği otomatik oynat" aria-pressed="false">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="m5 3 8 5-8 5z"/>
+                    </svg>
+                </button>
+                <span class="scale-caption">
+                    <strong id="scaleTitle">Ölçeği oynat</strong>
+                    <small id="scaleSubtitle">Yakın → Evren</small>
+                </span>
             </div>
-        </div>
-        <div class="bottom-left ui">
-            <span class="live-dot" id="status">ZAMAN AKIYOR</span>
-            <span class="quiet">FOTOĞRAF VERİSİYLE İŞLENMİŞ GEZEGENLER</span>
-        </div>
-        <div class="bottom-right ui">
-            <button class="round" id="home" title="Eve dön (H)" aria-label="Dünya'ya dön">
-                <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="6"/>
-                    <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
-                </svg>
-            </button>
-            <button class="round" id="cinema" title="Sinema modu (C)" aria-label="Sinema modu">
-                <svg viewBox="0 0 24 24">
-                    <path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/>
-                </svg>
-            </button>
-            <button class="round" id="fullscreen" title="Tam ekran (F)" aria-label="Tam ekran">
-                <svg viewBox="0 0 24 24">
-                    <path d="m4 4 6 6m10-6-6 6M4 20l6-6m10 6-6-6M4 9V4h5m11 5V4h-5M4 15v5h5m11-5v5h-5"/>
-                </svg>
-            </button>
-        </div>
+            <div class="distance ui">
+                <strong id="distance">21.000 km</strong>
+                <small id="distanceCaption">ODAK NOKTASINA UZAKLIK</small>
+            </div>
+            <div class="hint ui" id="hint">SÜRÜKLE · ETRAFINA BAK &nbsp;&nbsp; KAYDIR · EVRENİN İÇİNDE UZAKLAŞ</div>
+            <div class="dock ui" aria-label="Zaman kontrolü">
+                <button class="play" id="play" aria-label="Zamanı duraklat">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M4 3h2.5v10H4zm5.5 0H12v10H9.5z"/>
+                    </svg>
+                </button>
+                <div class="clock">
+                    <small class="clock-label">ZAMAN</small>
+                    <span class="date" id="date">20 EKİ 2026</span>
+                </div>
+                <div class="separator"></div>
+                <div class="speed-wrap">
+                    <select id="speed" aria-label="Zamanın akış hızı">
+                        <option value="0.000011574074">Gerçek zaman</option>
+                        <option value="0.00069444444">1 dakika / sn</option>
+                        <option value="0.00347222222" selected>5 dakika / sn</option>
+                        <option value="0.04166666667">1 saat / sn</option>
+                        <option value="1">1 gün / sn</option>
+                        <option value="30">30 gün / sn</option>
+                        <option value="365.25">1 yıl / sn</option>
+                        <option value="36525000">100 bin yıl / sn</option>
+                        <option value="365250000">1 milyon yıl / sn</option>
+                        <option value="36525000000">100 milyon yıl / sn</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bottom-left ui">
+                <span class="live-dot" id="status">ZAMAN AKIYOR</span>
+                <span class="quiet">FOTOĞRAF VERİSİYLE İŞLENMİŞ GEZEGENLER</span>
+            </div>
+            <div class="bottom-right ui">
+                <button class="round" id="home" title="Eve dön (H)" aria-label="Dünya'ya dön">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="6"/>
+                        <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+                    </svg>
+                </button>
+                <button class="round" id="cinema" title="Sinema modu (C)" aria-label="Sinema modu">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/>
+                    </svg>
+                </button>
+                <button class="round" id="fullscreen" title="Tam ekran (F)" aria-label="Tam ekran">
+                    <svg viewBox="0 0 24 24">
+                        <path d="m4 4 6 6m10-6-6 6M4 20l6-6m10 6-6-6M4 9V4h5m11 5V4h-5M4 15v5h5m11-5v5h-5"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
         <div class="toast" id="toast" role="status" aria-live="polite"></div>
         <div class="tour-progress" id="tourProgress"></div>
         <button class="cinema-exit" id="cinemaExit">Esc · Geri dön</button>
@@ -1594,6 +2205,14 @@
                 <span>Simülasyon saatini başlangıca al</span>
                 <button id="resetTime" class="text-btn" style="padding:0">Sıfırla ↶</button>
             </div>
+            <div class="control phone-only">
+                <span>Sinema görünümü</span>
+                <button id="phoneCinema" class="round" aria-label="Sinema görünümünü aç">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/>
+                    </svg>
+                </button>
+            </div>
             <h3>KONTROLLER</h3>
             <p>
                 <kbd>Sürükle</kbd>
@@ -1615,7 +2234,7 @@
             </p>
             <h3>TEK SAHNE, GERÇEK UZUNLUK BİRİMLERİ</h3>
             <p>Dünya, Ay, Güneş, gezegenler, yıldız çevresi, Samanyolu, Andromeda ve kozmik ağ aynı koordinat sisteminde bulunur. Tekerlek ve sağdaki ölçek, kamera uzaklığını kesintisiz değiştirir. Yakından gösterilen kürelerin çapları ve Güneş Sistemi uzaklıkları büyütülmez. Görünmeyecek kadar küçük cisimlerin yanındaki isimler ve nokta işaretleri, seçim yapabilmek için sabit ekran boyutundadır.</p>
-            <p>Büyük uzaklıklarda sayısal hassasiyeti korumak için kamera çevresinde kayan koordinat merkezi kullanılır. Ayrıntılar uzaklığa göre kademeli işlenir. Çok uzaktaki yıldızlar arka plan yönlerine izdüşürülür. Sağdaki ölçeğin yanındaki oynat düğmesi, bulunduğun uzaklıktan başlayarak evrene doğru otomatik uzaklaşır. Tekrar basınca bulunduğun yerde durur; ölçeği elle değiştirmek de otomatik akışı durdurur. En uzak noktada yeniden basarsan Dünya’ya dönerek baştan oynar. Ölçek değiştikçe odak, yakın cisimden Güneş’e ve galaktik merkeze yumuşakça kayar; ayrı bir sahne yüklenmez.</p>
+            <p>Büyük uzaklıklarda sayısal hassasiyeti korumak için kamera çevresinde kayan koordinat merkezi kullanılır. Ayrıntılar uzaklığa göre kademeli işlenir. Çok uzaktaki yıldızlar arka plan yönlerine izdüşürülür. Ölçek kontrolündeki oynat düğmesi, bulunduğun uzaklıktan başlayarak evrene doğru otomatik uzaklaşır. Tekrar basınca bulunduğun yerde durur; ölçeği elle değiştirmek de otomatik akışı durdurur. En uzak noktada yeniden basarsan Dünya’ya dönerek baştan oynar. Ölçek değiştikçe odak, yakın cisimden Güneş’e ve galaktik merkeze yumuşakça kayar; ayrı bir sahne yüklenmez.</p>
             <h3>MODELİN SINIRLARI</h3>
             <p>Güneş Sistemi hareketleri, sabit yaklaşık yörünge elemanlarıyla Kepler denkleminden hesaplanır. Başlangıç fazları örnektir: takvim bir efemeris veya canlı gökyüzü haritası değildir. Karşılıklı kütleçekim, uzun dönemli yörünge değişimleri ve çarpışmalar çözülmez. Gaz devlerindeki bulut hareketi görsel yorumdur. Büyük zaman hızlarında gezegenler çok sayıda tur atladığından ara konumlar örneklenir.</p>
             <p>Ay ve büyük uydular gerçek yaklaşık yarıçap, uzaklık ve dönemlerle yer alır. Dünya’nın bulutları, gece ışıkları ve atmosferi açıklayıcı görsel katmanlardır; canlı hava durumu değildir. Mars dışındaki küçük uyduların bazı yüzeyleri Ay haritasından uyarlanmıştır.</p>
@@ -27600,6 +28219,12 @@ THE SOFTWARE.
                   , GY = 50000 * LY
                   , TAU = Math.PI * 2
                   , Rearth = 6371000;
+                const compactUI = () => {
+                    const w = document.documentElement.clientWidth || innerWidth
+                      , h = window.visualViewport ? visualViewport.height * visualViewport.scale : innerHeight;
+                    return w <= 760 || (w <= 960 && h <= 540)
+                }
+                ;
                 const clamp = (n, a, b) => Math.max(a, Math.min(b, n))
                   , smooth = (a, b, x) => {
                     let t = clamp((x - a) / (b - a), 0, 1);
@@ -27654,7 +28279,7 @@ THE SOFTWARE.
                     return
                 }
                 renderer.setClearColor(0x030507);
-                renderer.setPixelRatio(Math.min(devicePixelRatio, 1.6));
+                renderer.setPixelRatio(Math.min(devicePixelRatio, compactUI() ? 1.5 : 1.6));
                 renderer.outputColorSpace = T.SRGBColorSpace;
                 renderer.toneMapping = T.ACESFilmicToneMapping;
                 renderer.toneMappingExposure = 1.05;
@@ -27665,6 +28290,7 @@ THE SOFTWARE.
                 let W = innerWidth
                   , H = innerHeight
                   , distance = 1
+                  , viewFactor = 1
                   , elapsed = 0
                   , frame = 0
                   , dt = 0
@@ -27693,7 +28319,7 @@ THE SOFTWARE.
                         return;
                     try {
                         const tex = await loader.loadAsync(src);
-                        tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+                        tex.anisotropy = Math.min(compactUI() ? 4 : 8, renderer.capabilities.getMaxAnisotropy());
                         tex.wrapS = T.RepeatWrapping;
                         tex.wrapT = T.ClampToEdgeWrapping;
                         textures[name] = tex;
@@ -28612,6 +29238,15 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                     $('labels').appendChild(el);
                     b.label = el
                 }
+                const phoneHeadlines = {
+                    solar: 'Bir yıldız.<br><em>Sekiz dünya.</em>',
+                    web: 'Evrenin<br><em>dokusu.</em>',
+                    universe: 'Bütün bunların<br><em>içinde, biz.</em>',
+                    saturn: 'Buzdan bir<br><em>sonsuzluk.</em>',
+                    jupiter: 'Bir dünya değil.<br><em>Bir fırtına.</em>',
+                    andromeda: 'Başka bir<br><em>yıldız adası.</em>',
+                    oort: 'Işığın bile<br><em>yılları var.</em>'
+                };
                 const storyData = {
                     earth: ['01 / EVİMİZ', 'Karanlığın içinde,<br><em>bir ev.</em>', 'Bildiğin bütün hayat, bu ince mavi çizginin altında. Biraz uzaklaş. Hikâyenin geri kalanı orada.'],
                     moon: ['02 / YAKIN KOMŞUMUZ', 'Hep aynı yüz.<br><em>Başka bir gece.</em>', 'Karanlık denizler, eski kraterler. Bize en yakın başka bir dünyadasın.'],
@@ -28650,7 +29285,7 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                     if (storyId === zone)
                         return;
                     storyId = zone;
-                    if (!reduced && !S.detail && !S.cinema && $('story').animate)
+                    if (!compactUI() && !reduced && !S.detail && !S.cinema && $('story').animate)
                         $('story').animate([{
                             opacity: .1,
                             transform: 'translateY(9px)'
@@ -28663,7 +29298,7 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                         });
                     const text = storyData[zone] || fallback;
                     $('kicker').textContent = text[0];
-                    $('headline').innerHTML = text[1];
+                    $('headline').innerHTML = compactUI() && phoneHeadlines[zone] ? phoneHeadlines[zone] : text[1];
                     $('intro').textContent = text[2];
                     $('info').firstChild.textContent = byId[zone] ? 'Hikâyesini oku ' : 'Bu ölçeği tanı ';
                     $('scaleLabel').textContent = body.name.toLocaleUpperCase('tr-TR');
@@ -28830,11 +29465,16 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                 ;
                 $('search').oninput = e => drawDestinations(e.target.value);
                 $('closeDestinations').onclick = closeDestinations;
-                $('info').onclick = () => showDetail(currentZone());
+                $('info').onclick = () => {
+                    stopScalePlayback();
+                    showDetail(currentZone())
+                }
+                ;
                 $('closeDetail').onclick = closeDetail;
                 $('approach').onclick = () => navigate($('detail').dataset.id);
                 $('home').onclick = $('brandHome').onclick = () => navigate('earth');
                 $('settings').onclick = () => {
+                    stopScalePlayback();
                     $('settingsDialog').showModal();
                     closeDestinations()
                 }
@@ -28891,6 +29531,11 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                 }
                 $('cinema').onclick = () => cinema();
                 $('cinemaExit').onclick = () => cinema(false);
+                $('phoneCinema').onclick = () => {
+                    $('settingsDialog').close();
+                    cinema(true)
+                }
+                ;
                 async function fullscreen() {
                     try {
                         if (document.fullscreenElement)
@@ -28913,6 +29558,9 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                     const label = active ? 'Otomatik ölçek akışını duraklat' : S.logD >= 27.48 ? 'Dünya’dan başlayarak yeniden oynat' : 'Ölçeği otomatik oynat';
                     button.setAttribute('aria-label', label);
                     button.title = label;
+                    $('scaleTitle').textContent = active ? 'Uzaklaşılıyor' : S.logD >= 27.48 ? 'Yeniden oynat' : 'Ölçeği oynat';
+                    $('scaleSubtitle').textContent = active ? 'Duraklatmak için dokun' : 'Yakın → Evren';
+                    document.body.classList.toggle('scale-playing', active);
                     button.innerHTML = active ? '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h2.5v10H4zm5.5 0H12v10H9.5z"/></svg>' : '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5z"/></svg>'
                 }
                 function stopScalePlayback() {
@@ -28946,6 +29594,7 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                     scalePlaybackUI()
                 }
                 $('scalePlay').onclick = toggleScalePlayback;
+                $('zoom').addEventListener('pointerdown', () => stopScalePlayback());
                 function stopTour() {
                     if (!S.tour)
                         return;
@@ -29141,25 +29790,57 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                 }
                 ;
                 function resize() {
-                    W = innerWidth;
-                    H = innerHeight;
+                    W = document.documentElement.clientWidth || innerWidth;
+                    H = Math.round(window.visualViewport ? window.visualViewport.height * window.visualViewport.scale : innerHeight);
+                    document.documentElement.style.setProperty('--app-h', H + 'px');
+                    renderer.setPixelRatio(Math.min(devicePixelRatio, compactUI() ? 1.5 : 1.6));
                     renderer.setSize(W, H);
                     camera.aspect = W / H;
-                    camera.setViewOffset(W, H, W < 760 ? -W * .04 : -W * .15, W < 760 ? -H * .045 : 0, W, H);
+                    storyId = '';
+                    updateStory();
+                    if (compactUI()) {
+                        const land = W > H && H <= 540
+                          , nav = $('navigationControls').getBoundingClientRect()
+                          , head = document.querySelector('.header').getBoundingClientRect()
+                          , story = $('story').getBoundingClientRect();
+                        let cx, cy, radius;
+                        if (land) {
+                            const top = head.bottom + 10
+                              , bottom = nav.top - 12;
+                            cx = W * .66;
+                            cy = (top + bottom) / 2;
+                            radius = Math.max(44, Math.min(W * .22, (bottom - top) * .43))
+                        } else {
+                            const top = Math.min(story.bottom + 12, nav.top - 112)
+                              , bottom = nav.top - 14;
+                            cx = W * .50;
+                            cy = (top + bottom) / 2;
+                            radius = Math.max(44, Math.min(W * .385, (bottom - top) * .47))
+                        }
+                        viewFactor = Math.max(1, Math.sqrt(1 + Math.pow(H / (2 * Math.tan(21 * Math.PI / 180) * radius), 2)) / 3.3);
+                        camera.setViewOffset(W, H, W * .5 - cx, H * .5 - cy, W, H)
+                    } else {
+                        viewFactor = 1;
+                        camera.setViewOffset(W, H, -W * .15, 0, W, H)
+                    }
                     camera.updateProjectionMatrix();
                     for (const c of pointsList)
                         c.pts.material.uniforms.uPixel.value = renderer.getPixelRatio();
                     const scale = $('scale');
                     scale.querySelectorAll('.tick').forEach(e => e.remove());
-                    const railHeight = W < 760 ? 230 : H < 650 ? 240 : 340;
-                    for (let i = 0; i <= 15; i++) {
-                        const t = document.createElement('span');
-                        t.className = 'tick' + (i % 5 === 0 ? ' major' : '');
-                        t.style.top = (railHeight * i / 15) + 'px';
-                        scale.appendChild(t)
+                    if (!compactUI()) {
+                        const railHeight = H < 650 ? 240 : 340;
+                        for (let i = 0; i <= 15; i++) {
+                            const t = document.createElement('span');
+                            t.className = 'tick' + (i % 5 === 0 ? ' major' : '');
+                            t.style.top = (railHeight * i / 15) + 'px';
+                            scale.appendChild(t)
+                        }
                     }
                 }
                 addEventListener('resize', resize);
+                if (window.visualViewport)
+                    window.visualViewport.addEventListener('resize', resize);
                 resize();
                 function focusFor(id, log) {
                     const selected = all[id] || byId.earth
@@ -29365,7 +30046,7 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                         if (!s)
                             show = false;
                         if (byId[id]) {
-                            if (s && s.radius > H * .31)
+                            if (s && (s.radius > H * .31 || (compactUI() && id === S.selected && s.radius > W * .16)))
                                 show = false;
                             if (S.logD > 16 && id !== 'proxima')
                                 show = false;
@@ -29405,8 +30086,9 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                     }
                 }
                 function updateHUD() {
-                    if (document.activeElement !== $('zoom'))
-                        $('zoom').value = S.logD;
+                    if (document.activeElement !== $('zoom') || S.scalePlaying || flight)
+                        $('zoom').value = S.scalePlaying || flight ? S.logD : S.targetLogD;
+                    $('zoom').style.setProperty('--zoom-progress', clamp((Number($('zoom').value) - 6.6) / 20.9 * 100, 0, 100) + '%');
                     let txt;
                     if (distance < 1e9)
                         txt = fmt(distance / 1000) + ' km';
@@ -29461,7 +30143,11 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                     }
                     if (S.scalePlaying && !flight) {
                         scaleRestart = false;
-                        scaleVelocity = lerp(scaleVelocity, .28, 1 - Math.exp(-dt * 2));
+                        const scenicSpeed = .28 - .08 * Math.exp(-Math.pow((S.logD - 12.3) / .85, 2)) - .12 * Math.exp(-Math.pow((S.logD - 20.8) / 1.1, 2));
+                        scaleVelocity = lerp(scaleVelocity, scenicSpeed, 1 - Math.exp(-dt * 2));
+                        const solarTilt = smooth(10.2, 12, S.logD) * (1 - smooth(15, 17, S.logD))
+                          , galaxyTilt = smooth(18, 20, S.logD) * (1 - smooth(22.5, 24.2, S.logD));
+                        S.targetPitch = lerp(S.targetPitch, .16 + .38 * solarTilt + .72 * galaxyTilt + .15 * smooth(24, 26, S.logD), 1 - Math.exp(-dt * .8));
                         S.targetLogD = Math.min(27.5, S.targetLogD + scaleVelocity * dt);
                         if (S.logD >= 27.498 && S.targetLogD === 27.5) {
                             S.logD = 27.5;
@@ -29478,7 +30164,7 @@ vec4 tex=texture2D(uMap,vec2(vUv.x,.5));vec3 L=normalize(uSun);float lighting=.2
                     S.pitch = lerp(S.pitch, S.targetPitch, turn);
                     updateWorld();
                     updateFocus();
-                    distance = Math.pow(10, S.logD) * Math.max(1, H / W * .91);
+                    distance = Math.pow(10, S.logD) * viewFactor;
                     camDir.set(Math.sin(S.yaw) * Math.cos(S.pitch), Math.sin(S.pitch), Math.cos(S.yaw) * Math.cos(S.pitch));
                     camera.position.copy(camDir);
                     camera.lookAt(0, 0, 0);
